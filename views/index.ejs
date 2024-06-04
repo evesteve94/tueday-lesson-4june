@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <nav>
+        <!-- home post -->
+    </nav>
+    <main>
+        <div class="user-container">
+            <!-- user ejs -->
+            <% users.forEach(function(user){ %>
+                <div class="user-card">
+                    <img src= <%= user.image %> alt="user image">
+                    <h3> <%= user.firstName user.lastName %> </h3>
+                    <h4> <%= user.userName %> </h4>
+                </div>
+            <% }) %>
+        </div>
+
+        <div class="product-container">
+            <!-- product ejs -->
+            <% products.forEach(function(product){ %>
+                <div class="user-card">
+                    <img src= <%= product.imgage %> alt="user image">
+                    <h3> <%= product.name %> </h3>
+                    <h4> <%= product.price %> </h4>
+                    <h4> <% if (product.inStock) { %>
+                        <p>This product is in stock!</p>
+                   <% } else { %>
+                        <p>This product is not available, out of stock</p>
+                 <%  } %> </h4>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

@@ -6,6 +6,7 @@ import users from "../constants/users.js";
 //middleware för att reqest.body kan defineras
 router.use(oExpress.json());
 
+
 router.get("/", (_request, _response) =>
     {
     _response.send("/ (Root/base) for users shown...")
@@ -40,7 +41,7 @@ router.get("/api/users/:id", (_request, _response) =>
     })
     
     //uppgift 4
-    router.get("/usersfilter/:firstName/:nickName", (_request, _response) =>
+router.get("/usersfilter/:firstName/:nickName", (_request, _response) =>
     {
         let firstName = _request.params.firstName
         let nickName = _request.params.nickName
@@ -55,7 +56,7 @@ router.get("/api/users/:id", (_request, _response) =>
     })
     
     //uppgift 5
-    router.get("/usersfilter", (_request, _response) => 
+router.get("/usersfilter", (_request, _response) => 
     {
         //example /usersfilter?firstName=Mark
         //example /usersfilter?firstName=January&nickName=Jan
@@ -73,7 +74,7 @@ router.get("/api/users/:id", (_request, _response) =>
         _response.status(200).send(findAllBasedOnQuery)
     })
     
-    router.post("/api/users", (_request, _response) =>
+router.post("/api/users", (_request, _response) =>
     {
         let newUserObject = _request.body 
         //let { body } = _request
@@ -86,7 +87,7 @@ router.get("/api/users/:id", (_request, _response) =>
         _response.status(201).send(addNewUser)
     })
     
-    router.put("/api/users/:id", (_request, _response) => 
+router.put("/api/users/:id", (_request, _response) => 
     {
         let { body, params: {id} } = _request
         //let id = _request.params.id
@@ -115,7 +116,7 @@ router.get("/api/users/:id", (_request, _response) =>
         _response.status(200).send(users[userIndex])
     })
     
-    router.patch("/api/users/:id", (_request, _response) => 
+router.patch("/api/users/:id", (_request, _response) => 
     {
         let { body, params: {id}} = _request
         //let id = _request.params.id
@@ -142,7 +143,7 @@ router.get("/api/users/:id", (_request, _response) =>
         _response.status(200).send(users[userIndex])
     })
     
-    router.delete("/api/users/:id", (_request, _response) =>
+router.delete("/api/users/:id", (_request, _response) =>
     {
         let { params: {id} } = _request
         //let id = _request.params.id 

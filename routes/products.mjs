@@ -5,6 +5,7 @@ import products from "../constants/products.js";
 //middleware för att reqest.body kan defineras
 router.use(oExpress.json());
 
+
 //GET PRODUCTS
 router.get("/api/products", (_request, _response) => {
     _response.status(200).json(products);
