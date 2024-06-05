@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+<body>
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/api/users">Add User</a>
+        <a href="/api/products">Add Product</a>
+    </nav>
+    <div class="user-container">
+        <h2>USERS</h2>
+
+            <div class="user-card">
+                <img src="<%= user.image %>" alt="user image"> <!-- Removed space and added quotes -->
+                <h3><%= user.firstName %> <%= user.lastName %></h3> <!-- Removed space and separated names -->
+                <h4><%= user.userName %></h4> <!-- Added equal sign for outputting value -->
+                <p> <%= user.description %> </p>
+            </div>
+    </div>
+</body>
+</html>

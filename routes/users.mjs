@@ -6,6 +6,9 @@ import users from "../constants/users.js";
 //middleware för att reqest.body kan defineras
 router.use(oExpress.json());
 
+// Serve static files
+router.use(oExpress.static('public'))
+
 
 router.get("/", (_request, _response) =>
     {
@@ -16,6 +19,28 @@ router.get("/api/users", (_request, _response) =>
     {
     _response.send(users)
     })
+
+router.get("/users/:id", (_request, _response) =>
+    {
+        const userId = parseInt(_request.params.id);
+
+        console.log(userId)
+
+            let findUser = users.find( (_user) => 
+            {
+                return _user.id === userId 
+            })
+
+        
+            _response.status(200).render("userDetails", {user: findUser})
+    })
+    
+   router.get("/adduser", (_request, _response) =>
+        {
+            
+                _response.status(200).render("addUser", {users: users})
+        })
+        
 
 //uppgift 3
 router.get("/api/users/:id", (_request, _response) => 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/api/users">Add user</a>
+        <a href="/api/products">Add Product</a>
+    </nav>
+    <div class="product-container">
+
+        <div class="product-card">
+            <img src="<%= product.image %>" alt="product image"> <!-- Removed space and added quotes -->
+            <h3><%= product.name %></h3> <!-- Removed space -->
+            <h3><%= product.price %></h3> <!-- Removed space -->
+            <h4><% if (product.inStock) { %>In Stock<% } else { %>Out of Stock<% } %></h4> <!-- Corrected if statement -->
+        </div>
+    </div>
+</body>
+</html>

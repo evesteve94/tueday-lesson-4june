@@ -3,38 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>HOME</title>
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
     <nav>
-        <!-- home post -->
+        <a href="/home">Home</a>
+        <a href="/api/users">Add User</a>
+        <a href="/api/products">Add Product</a>
     </nav>
     <main>
         <div class="user-container">
-            <!-- user ejs -->
-            <% users.forEach(function(user){ %>
+            <h2>USERS</h2>
+            <!-- User ejs -->
+            <% users.forEach(function(user) { %> <!-- Changed users to user -->
+                <a href="users/<%= user.id %>">
                 <div class="user-card">
-                    <img src= <%= user.image %> alt="user image">
-                    <h3> <%= user.firstName user.lastName %> </h3>
-                    <h4> <%= user.userName %> </h4>
+                    <img src="<%= user.image %>" alt="user image"> <!-- Removed space and added quotes -->
+                    <h3><%= user.firstName %> <%= user.lastName %></h3> <!-- Removed space and separated names -->
+                    <h4>user name: <%= user.username %></h4> <!-- Added equal sign for outputting value -->
                 </div>
             <% }) %>
+        </a>
         </div>
-
         <div class="product-container">
-            <!-- product ejs -->
-            <% products.forEach(function(product){ %>
-                <div class="user-card">
-                    <img src= <%= product.imgage %> alt="user image">
-                    <h3> <%= product.name %> </h3>
-                    <h4> <%= product.price %> </h4>
-                    <h4> <% if (product.inStock) { %>
-                        <p>This product is in stock!</p>
-                   <% } else { %>
-                        <p>This product is not available, out of stock</p>
-                 <%  } %> </h4>
+            <h2>PRODUCTS</h2>
+            <!-- Product ejs -->
+            <% products.forEach(function(product) { %> <!-- Changed users to products and users to product -->
+                <a href="products/<%= product.id %>">
+                <div class="product-card">
+                    <img src="<%= product.image %>" alt="product image"> <!-- Removed space and added quotes -->
+                    <h3><%= product.name %></h3> <!-- Removed space -->
+                    <h3><%= product.price %></h3> <!-- Removed space -->
+                    <h4><% if (product.inStock) { %>In Stock<% } else { %>Out of Stock<% } %></h4> <!-- Corrected if statement -->
                 </div>
             <% }) %>
+            </a>
         </div>
     </main>
 </body>

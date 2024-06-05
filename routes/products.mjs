@@ -5,6 +5,24 @@ import products from "../constants/products.js";
 //middleware för att reqest.body kan defineras
 router.use(oExpress.json());
 
+// Serve static files
+router.use(oExpress.static('public'))
+
+
+router.get("/products/:id", (_request, _response) =>
+    {
+        const productId = parseInt(_request.params.id);
+
+
+            let findProduct = products.find( (_product) => 
+            {
+                return _product.id === productId 
+            })
+
+        
+            _response.status(200).render("productDetails", {product: findProduct})
+    })
+    
 
 //GET PRODUCTS
 router.get("/api/products", (_request, _response) => {
